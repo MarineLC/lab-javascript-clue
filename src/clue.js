@@ -2,7 +2,7 @@
 
 // Suspects Array
 
-const suspectsArray = [mrGreen = {
+const suspectsArray = [{
 firstName: 'Jacob',
 lastName: 'Green',
 occupation: 'Entrepreneur',
@@ -11,7 +11,7 @@ description: 'He has a lot of connections',
 image: 'https://pbs.twimg.com/profile_images/506787499331428352/65jTv2uC.jpeg',
 color: 'green'
 },
-drOrchid = {
+ {
     firstName: 'Doctor',
     lastName: 'Orchid',
     occupation: 'Scientist',
@@ -21,7 +21,7 @@ drOrchid = {
     color: 'white'
    
 },
-profPlum = {
+ {
     firstName: 'Victor',
     lastName: 'Plum',
     occupation: 'Designer',
@@ -30,7 +30,7 @@ profPlum = {
     image: 'https://66.media.tumblr.com/ee7155882178f73b3781603f0908617c/tumblr_phhxc7EhPJ1w5fh03_540.jpg',
     color:'purple'
 },
-missScarlet = {
+ {
     firstName: 'Kasandra',
     lastName: 'Scarlet',
     occupation: 'Actor',
@@ -39,7 +39,7 @@ missScarlet = {
     image: 'https://www.radiotimes.com/uploads/images/Original/111967.jpg',
     color: 'red'
 },
-mrsPeacock = {
+{
     firstName:'Eleanor',
     lastName: 'Peacock',
     occupation: 'Socialité',
@@ -48,7 +48,7 @@ mrsPeacock = {
     image: 'https://metrouk2.files.wordpress.com/2016/07/mrs-peacock.jpg',
     color: 'blue'
 },
-mrMustard = {
+ {
     
     firstName: 'Jack',
     lastName: 'Mustard',
@@ -98,10 +98,10 @@ const roomsArray = [
 // Weapons Array
 
 const weaponsArray = [
-    {
+   {
     name: 'rope',
     weight: 10
-},{
+}, {
     name: 'knife',
     weight: 8
 },{
@@ -113,13 +113,13 @@ const weaponsArray = [
 },{
     name: 'poison',
     weight: 2
-},{
+}, {
     name: 'axe',
     weight: 15
-},{
+}, {
     name: 'bat',
     weight: 13
-},{
+}, {
     name: 'trophy',
     weight: 25
 },{
@@ -130,12 +130,35 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(array) {
+    if(array.length === 0){
+        return undefined;
+    }else{ 
+        return array[(Math.floor(Math.random() * array.length ))];
+    }
+     
+}
 
-function pickMystery() {}
+function pickMystery() {
+ const suspect = selectRandom(suspectsArray);
+  const weapon = selectRandom(weaponsArray);
+  const room = selectRandom(roomsArray);
+    
+    const myMystery = { 
+    suspect : suspect,
+    weapon : weapon,
+    room : room
+        };
+
+
+return myMystery;
+}
 
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery() {
+    return `${pickMystery().suspect.firstName} ${pickMystery().suspect.lastName} killed Mr. Boddy using the
+    ${pickMystery().weapon.name} in the ${pickMystery().room.name}!`;
+}
 
